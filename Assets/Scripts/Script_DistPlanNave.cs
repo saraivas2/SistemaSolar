@@ -17,24 +17,33 @@ public class Script_text_plutao : MonoBehaviour
     public GameObject Netuno;
     public GameObject Plutao;
     public GameObject Nave;
+    public GameObject SolText;
+    public GameObject MercurioTex;
+    public GameObject VenusTex;
+    public GameObject TerraTex;
+    public GameObject MarteTex;
+    public GameObject JupiterTex;
+    public GameObject SaturnoTex;
+    public GameObject UranoTex;
+    public GameObject NetunoTex;
+    public GameObject PlutaoTex;
+    private Vector3 posiNave;
+
 
     public TextMesh Text_Nave;
-
-    // Distâncias para controle de visibilidade e tamanho
-    private float maxDistance = 200f;
-    private float minDistance = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-            // Calcula a distância entre Terra e Nave
+
+        // Calcula a distância entre Terra e Nave
             float sol = Vector3.Distance(Sol.transform.position, Nave.transform.position);
             float mercurio = Vector3.Distance(Mercurio.transform.position, Nave.transform.position);
             float venus = Vector3.Distance(Venus.transform.position, Nave.transform.position);
@@ -46,78 +55,83 @@ public class Script_text_plutao : MonoBehaviour
             float netuno = Vector3.Distance(Netuno.transform.position, Nave.transform.position);
             float plutao = Vector3.Distance(Plutao.transform.position, Nave.transform.position);
             
-       
-            
-            // Controle da visibilidade e tamanho do TextMesh com base na distância
             if (sol <= mercurio)
-            {
+            {    
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Sol: " + sol.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                
-            }
+                SolText.transform.rotation = Nave.transform.rotation;
+        }
             else if (mercurio <= venus)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Mercurio: " + mercurio.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                
-            }
+                MercurioTex.transform.rotation = Nave.transform.rotation;
+
+        }
             else if (venus <= terra)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Venus: " + venus.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                
-            }
+                VenusTex.transform.rotation = Nave.transform.rotation;
+
+        }
             else if (terra <= marte)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Terra: " + terra.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                
-            }
+                TerraTex.transform.rotation = Nave.transform.rotation;
+        }
             else if (marte <= jupiter)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Marte: " + marte.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                
-            }
+                MarteTex.transform.rotation = Nave.transform.rotation;
+
+        }
             else if (jupiter <= saturno)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Jupiter: " + jupiter.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-               
-            }
+                JupiterTex.transform.rotation = Nave.transform.rotation;
+
+        }
             else if (saturno <= urano)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Saturno : " + saturno.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                                               
-            }
+                SaturnoTex.transform.rotation = Nave.transform.rotation;
+
+        }
             else if (urano <= netuno)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Urano: " + urano.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-               
-            }
+                UranoTex.transform.rotation = Nave.transform.rotation;
+
+        }
             else if (netuno <= plutao)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Netuno: " + netuno.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                
-            }
+                NetunoTex.transform.rotation = Nave.transform.rotation;
+
+        }
             else if (plutao < netuno)
             {
                 // Atualiza o texto com a distância
                 Text_Nave.text = "Plutão: " + plutao.ToString("F2");
                 Text_Nave.color = Color.white; // Cor visível
-                
-            }
+                PlutaoTex.transform.rotation = Nave.transform.rotation;
+
+        }
     }
 }
