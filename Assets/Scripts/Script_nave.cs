@@ -9,6 +9,7 @@ public class Script_nave : MonoBehaviour
     public float sensibilidade = 1.2f;
     private float velocidade;
     private float aceleracao = 5.0f;
+    private float turbo = 1.0f;
     private Vector3 direcao;
     private float mouseX=0.0f, mouseY=0.0f;
     
@@ -42,9 +43,19 @@ public class Script_nave : MonoBehaviour
     void InputPersonagem()
     {
         direcao = Vector3.zero;
+        
+        if (Input.GetKey(KeyCode.Q))
+        {
+            turbo = 2.0f;
+
+        }
+        else
+        {
+            turbo = 1.0f;
+        }
         if (Input.GetKey(KeyCode.W))
         {
-            direcao += Vector3.forward * aceleracao;
+            direcao += Vector3.forward * aceleracao * turbo;
             if (aceleracao < 50)
             {
                 aceleracao += 2;
@@ -70,7 +81,7 @@ public class Script_nave : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            direcao += Vector3.back * aceleracao;
+            direcao += Vector3.back * aceleracao * turbo;
             if (aceleracao < 50)
             {
                 aceleracao += 2;
