@@ -28,8 +28,6 @@ public class Script_text_plutao : MonoBehaviour
     public GameObject NetunoTex;
     public GameObject PlutaoTex;
     private Vector3 posiNave;
-
-
     public TextMesh Text_Nave;
 
     // Start is called before the first frame update
