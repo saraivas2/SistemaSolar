@@ -11,6 +11,7 @@ public class Cameras1_2 : MonoBehaviour
     { 
      cam1 = cam1.GetComponent<Camera>();
      cam2 = cam2.GetComponent<Camera>();
+     ligarCamera1();
     }
 
     private void Update()
@@ -21,6 +22,24 @@ public class Cameras1_2 : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
+            ligarCamera2();
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+            viewPortCam1();
+            viewPortCam2();
+            ligarCamera1();
+        }
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            DesligarCameras();
+        }
+        if (Input.GetKey(KeyCode.U))
+        {
+            viewPortCam12();
+            ligarCamera1();
             ligarCamera2();
         }
     }
@@ -35,5 +54,27 @@ public class Cameras1_2 : MonoBehaviour
     {
         cam1.enabled = false;
         cam2.enabled = true;
+    }
+
+    void DesligarCameras()
+    {
+        cam1.enabled = false;
+        cam2.enabled = false;
+    }
+
+    void viewPortCam1()
+    {
+        cam1.rect = new Rect(0, 0, 1, 1);
+    }
+
+    void viewPortCam2()
+    {
+        cam2.rect = new Rect(0, 0, 1, 1);
+    }
+
+    void viewPortCam12()
+    {
+        cam1.rect = new Rect(0, 0, 0.5f, 1);
+        cam2.rect = new Rect(0, 0, 0.5f, 1);
     }
 }

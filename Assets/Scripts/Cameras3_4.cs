@@ -4,68 +4,77 @@ using UnityEngine;
 
 public class Cameras3_4 : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private Camera cam1;
-    [SerializeField] private Camera cam2;
-    [SerializeField] private float vel;
-    float fild1, fild2;
-    Vector3 posicaoNave, posicaoCamera;
+    [SerializeField] private Camera cam3;
+    [SerializeField] private Camera cam4;
 
     private void Start()
     {
-        player = player.GetComponent<Transform>();
-        cam1 = cam1.GetComponent<Camera>();
-        cam2 = cam2.GetComponent<Camera>();
+        cam3 = cam3.GetComponent<Camera>();
+        cam4 = cam4.GetComponent<Camera>();
+        ligarCamera3();
+
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.Alpha9))
         {
-            ligarCamera1();
+            ligarCamera3();
         }
-        else if (Input.GetKey(KeyCode.Alpha2))
+        else if (Input.GetKey(KeyCode.Alpha0))
         {
-            ligarCamera2();
-        }
-        fild1 = cam1.fieldOfView;
-        fild2 = cam2.fieldOfView;
-    }
-
-    void FixedUpdate()
-    {
-        if (cam1.enabled & fild1 == 30f)
-        {
-            AfastarCamera1();
-        }
-        else if (cam2.enabled & fild1 == 60f)
-        {
-            AproximarCamera1();
+            ligarCamera4();
         }
 
+        if (Input.GetKey(KeyCode.T))
+        {
+            viewPortCam3();
+            viewPortCam4();
+            ligarCamera3();           
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+            DesligarCameras();
+        }
+        if (Input.GetKey(KeyCode.U))
+        {
+            viewPortCam34();
+            ligarCamera3();
+            ligarCamera4();
+        }
     }
 
-    void AproximarCamera1()
+    void ligarCamera3()
     {
-        cam1.fieldOfView = Mathf.Lerp(65f, 30f, 0.01f * Time.deltaTime);
-
-    }
-    void AfastarCamera1()
-    {
-        cam1.fieldOfView = Mathf.Lerp(30f, 60f, 0.01f * Time.deltaTime);
+        cam3.enabled = true;
+        cam4.enabled = false;
     }
 
-    void ligarCamera1()
+    void ligarCamera4()
     {
-        cam1.enabled = true;
-        cam2.enabled = false;
-
+        cam3.enabled = false;
+        cam4.enabled = true;
     }
 
-    void ligarCamera2()
+    void viewPortCam3()
     {
-        cam1.enabled = false;
-        cam2.enabled = true;
-        AproximarCamera1();
+        cam3.rect = new Rect(0, 0, 1, 1);
+    }
+
+    void DesligarCameras()
+    {
+        cam3.enabled = false;
+        cam4.enabled = false;
+    }
+
+    void viewPortCam4()
+    {
+        cam4.rect = new Rect(0, 0, 1, 1);
+    }
+    void viewPortCam34()
+    {
+        cam3.rect = new Rect(0.5f, 0, 0.5f, 1);
+        cam4.rect = new Rect(0.5f, 0, 0.5f, 1);
     }
 }

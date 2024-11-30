@@ -39,6 +39,7 @@ public class Script_nave1 : MonoBehaviour
         //transform.eulerAngles = new Vector3(transform.eulerAngles.x, camera.eulerAngles.y, transform.eulerAngles.z);
         InputPersonagem();
         transform.Translate(direcao * velocidade * Time.deltaTime);
+       
         // Smoothly tilts a transform towards a target rotation.
         mouseY += Input.GetAxis("Mouse X") * sensibilidade;
         mouseX += Input.GetAxis("Mouse Y") * sensibilidade;
@@ -107,14 +108,14 @@ public class Script_nave1 : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            direcao += Vector3.right;
-
+            transform.Rotate(new Vector3(0f, -1f, 0f), (float)(Time.deltaTime * 20));
         }
+
         if (Input.GetKey(KeyCode.D))
         {
-            direcao += Vector3.left;
-
+            transform.Rotate(new Vector3(0f, 1f, 0f), (float)(Time.deltaTime * 20));
         }
+
         if (Input.GetKey(KeyCode.S))
         {
             direcao += Vector3.back * aceleracao * turbo;
