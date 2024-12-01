@@ -13,7 +13,6 @@ public class Script_nave2 : MonoBehaviour
     private Vector3 direcao;
     [SerializeField] private Camera camera;
     public float field;
-    public float num=0f;
 
 
     void Start()
