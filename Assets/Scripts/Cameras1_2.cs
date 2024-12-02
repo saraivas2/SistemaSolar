@@ -25,18 +25,18 @@ public class Cameras1_2 : MonoBehaviour
             ligarCamera2();
         }
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Input.GetKey(KeyCode.T))
         {
             viewPortCam1();
             viewPortCam2();
             ligarCamera1();
         }
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKey(KeyCode.U))
         {
             DesligarCameras();
         }
-        if (Input.GetKey(KeyCode.U))
+        if (Input.GetKey(KeyCode.Y))
         {
             viewPortCam12();
             ligarCamera1();
