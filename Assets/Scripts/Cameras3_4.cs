@@ -26,18 +26,18 @@ public class Cameras3_4 : MonoBehaviour
             ligarCamera4();
         }
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKey(KeyCode.U))
         {
             viewPortCam3();
             viewPortCam4();
             ligarCamera3();           
         }
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Input.GetKey(KeyCode.T))
         {
             DesligarCameras();
         }
-        if (Input.GetKey(KeyCode.U))
+        if (Input.GetKey(KeyCode.Y))
         {
             viewPortCam34();
             ligarCamera3();

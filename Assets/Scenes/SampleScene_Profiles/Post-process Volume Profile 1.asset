@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Post-process Volume Profile 1
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 2278870500853200408}
---- !u!114 &2278870500853200408
+  - {fileID: 1432448658259269456}
+--- !u!114 &1432448658259269456
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,8 +31,8 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   shutterAngle:
-    overrideState: 1
-    value: 273
+    overrideState: 0
+    value: 270
   sampleCount:
     overrideState: 0
-    value: 12
+    value: 10
